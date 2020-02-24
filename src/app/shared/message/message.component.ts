@@ -3,6 +3,7 @@ import { ServerService } from 'src/app/@service/server.service';
 import { SessionService } from 'src/app/@service/session.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormControl } from '@angular/forms';
+import { Platform, NavController } from '@ionic/angular';
 
 
 @Component({
@@ -29,7 +30,16 @@ export class MessageComponent implements OnInit {
     private session: SessionService,
     private route: ActivatedRoute,
     private router: Router,
-  ) { }
+    public navCtrl: NavController,
+    public platform: Platform,
+
+  ) { 
+    platform.ready().then(() => {
+      // Okay, so the platform is ready and our plugins are available.
+      // Here you can do any higher level native things you might need.
+
+    });
+  }
 
   // !
   ngOnInit() {
@@ -44,7 +54,7 @@ export class MessageComponent implements OnInit {
   }
 
 
-  ดูข้อความ
+  // ดูข้อความ
   getChatDetail() {
     const source = this.user[0].email_id;
     const descination = this.descination;

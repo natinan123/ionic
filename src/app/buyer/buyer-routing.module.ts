@@ -13,6 +13,8 @@ import { ProDetailComponent } from '../shared/pro-detail/pro-detail.component';
 import { ProfileComponent } from '../shared/profile/profile.component';
 import { EditProfileComponent } from '../shared/edit-profile/edit-profile.component';
 import { RequireComponent } from './require/require.component';
+import { MatchComponent } from './match/match.component';
+import { ListReqComponent } from './list-req/list-req.component';
 
 
 const routes: Routes = [
@@ -63,6 +65,15 @@ const routes: Routes = [
       { // 
         path: 'require',
         component: RequireComponent
+      },
+      { // 
+        path: 'list_Req',
+        component: ListReqComponent
+      },
+      
+      { // 
+        path: 'match',
+        component: MatchComponent
       },
     ]
   },

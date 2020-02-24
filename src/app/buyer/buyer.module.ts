@@ -14,11 +14,15 @@ import { API } from '../map-API';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { RequireComponent } from './require/require.component';
 import { AgmJsMarkerClustererModule } from '@agm/js-marker-clusterer';
+import { MatchComponent } from './match/match.component';
+import { ListReqComponent } from './list-req/list-req.component';
 
 @NgModule({
   declarations: [
     BuyerComponent,
     RequireComponent,
+    MatchComponent,
+    ListReqComponent,
   ],
   imports: [
     CommonModule,

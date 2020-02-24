@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ServerService } from 'src/app/@service/server.service';
 import { SessionService } from 'src/app/@service/session.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { NavController } from '@ionic/angular';
+import { NavController, Platform } from '@ionic/angular';
 
 @Component({
   selector: 'app-mail',
@@ -22,14 +22,15 @@ export class MailComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     public navCtrl: NavController,
+    public platform: Platform,
 
   ) { }
 
   ngOnInit() {
-   
-    // console.log(this.user);
-    this.getChatUser();
     this.user = this.session.getActiveUser();
+    this.getChatUser();
+
+    // console.log(this.user);
     this.status = this.user[0].cus_status;
     if (this.user[0].cus_status == null || this.user[0].cus_status == "") {
       this.link = '/mainpage/mainpage/message';
@@ -39,7 +40,7 @@ export class MailComponent implements OnInit {
     }
     if (this.user[0].cus_status == "seller") {
       this.link = '/seller/seller/message';
-    } 
+    }
     if (this.user[0].cus_status == "buyer") {
       this.link = '/buyer/buyer/message';
     }

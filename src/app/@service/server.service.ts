@@ -151,7 +151,12 @@ export class ServerService {
   getProvince(data) {
     return this.http.get(urlServer.ipServer + 'province/' + data)
   }
-  // Limit ระดับหการใช้
+  // เขตใน จังหวัด
+  getLocOfPro(data) {
+    return this.http.get(urlServer.ipServer + 'location/' + data)
+  }
+
+  // todo ยกเลิก : Limit ระดับหการใช้
   getLimited() {
     return this.http.get(urlServer.ipServer + 'limit')
   }
@@ -178,13 +183,25 @@ export class ServerService {
     return this.http.get(urlServer.ipServer + 'requirement/' + data)
   }
   // รายการที่ตรงกัน
-  getReqMatch() {
-    return this.http.get(urlServer.ipServer + 'reqmatch')
+  getReqMatch(data) {
+    return this.http.get(urlServer.ipServer + 'reqmatch/' + data)
+  }
+  // รายการรอตรวจสอบ
+  getListProWait() {
+    return this.http.get(urlServer.ipServer + 'list_proWait')
+  }
+  // นับ รายการรอตรวจสอบ
+  getCountProWait() {
+    return this.http.get(urlServer.ipServer + 'count_pro_wait')
   }
   // ? page : seller
   // Mypro
   getMypro(data) {
     return this.http.get(urlServer.ipServer + 'mypro/' + data)
+  }
+  // รออนุมัติ
+  getMyProWait(data) {
+    return this.http.get(urlServer.ipServer + 'myproawait/' + data)
   }
   // รายการฉบับร่าง
   getProDraft(data) {
@@ -202,7 +219,7 @@ export class ServerService {
   getCountPro(data) {
     return this.http.get(urlServer.ipServer + 'countpro/' + data)
   }
-  // รายการ อัพเกรด
+  // ! ไม่ใช้ รายการ อัพเกรด
   getUpgradeReq() {
     return this.http.get(urlServer.ipServer + 'getupgrade')
   }
@@ -218,8 +235,42 @@ export class ServerService {
   getNamePro(data) {
     return this.http.get(urlServer.ipServer + 'getnamepro/' + data)
   }
-
-
+  // อสังหาจากเขต
+  getProFromLocat(data) {
+    return this.http.get(urlServer.ipServer + 'proFromLocat/' + data)
+  }
+  // อสังหาจากจังหวัด
+  getProFromProvin(data) {
+    return this.http.get(urlServer.ipServer + 'proFromProvin/' + data)
+  }
+  // อสังหาจากราคา
+  getProFromprice(data) {
+    return this.http.post(urlServer.ipServer + 'proFromprice', data)
+  }
+  // อสังหาจากขนาดพื้นที่
+  getProFromArea(data) {
+    return this.http.post(urlServer.ipServer + 'proFromArea', data)
+  }
+  // อสังหา ที่ติดตาม
+  getProFollow(data) {
+    return this.http.get(urlServer.ipServer + 'profollow/' + data)
+  }
+  // เช็คการติดตาม
+  getfollow(data) {
+    return this.http.post(urlServer.ipServer + 'follow', data)
+  }
+  // ราคาแนะนำ
+  getGuide_price(data) {
+    return this.http.get(urlServer.ipServer + 'guide_price/' + data)
+  }
+  // รายการ อสัง เผยแพร่
+  getPro_public() {
+    return this.http.get(urlServer.ipServer + 'pro_public')
+  }
+  // todo ทดสอบ
+  getimageTast() {
+    return this.http.get(urlServer.ipServer + 'testgetimage')
+  }
   // ! END ^ Get -------------------------//
 
 
@@ -266,7 +317,10 @@ export class ServerService {
   postImageProMulti(formData) {
     return this.http.post(urlServer.ipServer + 'postproimage', formData)
   }
-
+  // post follow
+  postFavorate(data) {
+    return this.http.post(urlServer.ipServer + 'postFavorate', data)
+  }
   // ! END ^ Post -------------------------//
 
 
@@ -307,7 +361,7 @@ export class ServerService {
   putProfile(data) {
     return this.http.put(urlServer.ipServer + 'putprofile', data)
   }
-  // post สิทธิ์การประกาศ
+  // ! ไม่ใช้ post สิทธิ์การประกาศ
   postProLimit(data) {
     return this.http.put(urlServer.ipServer + 'putprolimit', data)
   }
@@ -330,11 +384,14 @@ export class ServerService {
   deleteReq(data) {
     return this.http.delete(urlServer.ipServer + 'deletereq/' + data)
   }
-  // delete req ยังทำไม่ได้
+  // ! ไม่ใช้ delete req ยังทำไม่ได้
   deleteReqUpgerde(data) {
     return this.http.delete(urlServer.ipServer + 'deleteupgrade/' + data)
   }
-
+  // delete Unfollow
+  deleteUnfollow(data) {
+    return this.http.post(urlServer.ipServer + 'unfollow', data)
+  }
 
 
   // ! END ^ Delete -------------------------//
@@ -347,10 +404,7 @@ export class ServerService {
   getTestPro() {
     return this.http.get(urlServer.ipServer + 'testGetpro')
   }
-  // post first chat
-  postTestarea(data) {
-    return this.http.post(urlServer.ipServer + 'testinsert', data)
-  }
+
   // post Article
   postArticle(data) {
     return this.http.post(urlServer.ipServer + 'postArticle', data)
@@ -378,14 +432,6 @@ export class ServerService {
     return this.http.post(urlServer.ipServer + 'firstchat', data)
   }
 
-
-
-
-
-  // // อสังหา แผนที่
-  // getMpaProperty() {
-  //   return this.http.get(urlServer.ipServer + 'promap')
-  // }
 
 
 

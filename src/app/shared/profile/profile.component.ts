@@ -18,6 +18,8 @@ export class ProfileComponent implements OnInit {
   facebook: any;
   cus_detail: any;
   profile_pic: any;
+  status: any;
+  link: string;
 
   constructor(
     private session: SessionService,
@@ -28,6 +30,21 @@ export class ProfileComponent implements OnInit {
     this.user = this.session.getActiveUser();
     console.log(this.user);
     this.getProfile();
+
+    
+    this.status = this.user[0].cus_status;
+    if (this.user[0].cus_status == null || this.user[0].cus_status == "") {
+      this.link = '/mainpage/mainpage/edit_profile';
+    }
+    if (this.user[0].cus_status == "admin") {
+      this.link = '/admin/admin/edit_profile';
+    }
+    if (this.user[0].cus_status == "seller") {
+      this.link = '/seller/seller/edit_profile';
+    }
+    if (this.user[0].cus_status == "buyer") {
+      this.link = '/buyer/buyer/edit_profile';
+    }
   }
 
 

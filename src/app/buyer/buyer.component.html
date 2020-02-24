@@ -15,9 +15,14 @@
       </ion-item>
 
       <ion-item class="menu-list" [routerLink]="['/buyer/buyer/require']">
-        <ion-icon name="git-pull-request" slot="start"></ion-icon> ความต้องการ
+        <ion-icon name="git-pull-request" slot="start"></ion-icon> กรอกความต้องการ
       </ion-item>
-      <ion-item class="menu-list">
+
+      <ion-item class="menu-list" [routerLink]="['/buyer/buyer/list_Req']">
+        <ion-icon name="layers" slot="start"></ion-icon> รายการความต้องการ
+      </ion-item>
+
+      <ion-item class="menu-list" [routerLink]="['/buyer/buyer/match']">
         <ion-icon name="pricetags" slot="start"></ion-icon>รายการต้องการที่ตรงกัน
       </ion-item>
 
@@ -65,7 +70,7 @@
         </ion-tab-button>
 
         <ion-tab-button tab="map">
-          <ion-icon name="pin"></ion-icon>
+          <ion-icon name="location"></ion-icon>
           <ion-label>แผนที่</ion-label>
         </ion-tab-button>
 
@@ -74,10 +79,10 @@
           <ion-label>แจ้งเตือน</ion-label>
         </ion-tab-button>
 
-        <ion-tab-button tab="mail">
+        <!-- <ion-tab-button tab="mail">
           <ion-icon name="chatbubbles"></ion-icon>
           <ion-label>แชท</ion-label>
-        </ion-tab-button>
+        </ion-tab-button> -->
 
 
 

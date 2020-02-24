@@ -1,11 +1,11 @@
 <ion-header>
-  <ion-toolbar  style="padding-top: 0px;">
-    <ion-title>map</ion-title>
+  <ion-toolbar style="padding-top: 0px;">
+    <ion-title style="font-size: medium;">map</ion-title>
   </ion-toolbar>
   <ion-toolbar>
-    <ion-item>
-      <ion-label>ประเภทอสังหาริมทรัพย์</ion-label>
-      <ion-select [(ngModel)]="type_id" FormControl="type_id" (ngModelChange)="onGetHouse($event)">
+    <ion-item class="font-small">
+      <ion-label class="font-small">ประเภทอสังหาริมทรัพย์</ion-label>
+      <ion-select [(ngModel)]="type_id" FormControl="type_id" (ngModelChange)="onGetHouse($event)" class="font-small">
         <ion-select-option value="1">บ้านเดี่ยว</ion-select-option>
         <ion-select-option value="2">ทาวน์เฮาส์</ion-select-option>
         <ion-select-option value="3">อพาร์ทเมนท์</ion-select-option>
@@ -34,7 +34,7 @@
               <p>ขนาดพื้นที่ :{{m.pro_area | number : '1.2-2'}} ตร.ม.</p>
               <button class="btn btn-primary btn-sm" [routerLink]="[link ,m.pro_id]">ดูรายละเอียด</button>
             </div>
-            
+
           </div>
 
 
