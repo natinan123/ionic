@@ -369,7 +369,10 @@ export class ServerService {
   putAvatar(formData) {
     return this.http.put(urlServer.ipServer + 'putavatar', formData)
   }
-
+  //  put อสังหาหมดอายุ
+  putExpire() {
+    return this.http.get(urlServer.ipServer + 'expire')
+  }
   // ! END ^ Update -------------------------//
 
 
@@ -431,6 +434,13 @@ export class ServerService {
   postFirstChat(data) {
     return this.http.post(urlServer.ipServer + 'firstchat', data)
   }
+  // post first chat
+  postFirstChatLiat(data) {
+    return this.http.post(urlServer.ipServer + 'chatlist', data)
+  }
+
+
+
 
 
 

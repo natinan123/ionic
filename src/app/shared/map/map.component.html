@@ -1,8 +1,8 @@
 <ion-header>
-  <ion-toolbar style="padding-top: 0px;">
+  <!-- <ion-toolbar style="padding-top: 0px;">
     <ion-title style="font-size: medium;">map</ion-title>
-  </ion-toolbar>
-  <ion-toolbar>
+  </ion-toolbar> -->
+  <ion-toolbar style="padding-top: 0px;">
     <ion-item class="font-small">
       <ion-label class="font-small">ประเภทอสังหาริมทรัพย์</ion-label>
       <ion-select [(ngModel)]="type_id" FormControl="type_id" (ngModelChange)="onGetHouse($event)" class="font-small">
@@ -17,15 +17,18 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content >
   <agm-map [style.height.px]="height" [latitude]="lat2" [longitude]="lng2">
     <agm-marker-cluster
       imagePath="https://raw.githubusercontent.com/googlemaps/v3-utility-library/master/markerclustererplus/images/m">
       <!-- หน้าเริ่ม -->
-      <agm-marker *ngFor="let m of markers;" [latitude]="m.latitude" [longitude]="m.longtitude">
+      <agm-marker *ngFor="let m of markers;" [latitude]="m.latitude" [longitude]="m.longtitude"
+        (markerClick)="clickedMarker(infowindow)">
         <!-- มาค์ก -->
 
-        <agm-info-window style="width: 223px; height: auto;">
+
+
+        <agm-info-window style="width: 223px; height: auto;" #infowindow>
           <h5><strong>{{m.type_name}} </strong></h5>
           <p>{{m.pro_head}}</p>
           <div class="row">

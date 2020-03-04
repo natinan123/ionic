@@ -1,58 +1,84 @@
-<ion-header>
-  <ion-item>
+<ion-menu side="start" menuId="first">
+  <ion-header>
+    <ion-toolbar color="primary">
+      <ion-title>เมนู</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
 
-    <img src="../../assets/imgs/Logo-24.png" width="50px">
+      <ion-item class="menu-list" [routerLink]="['/seller/seller/wishlist']">
+        <ion-icon name="notifications" slot="start"></ion-icon> แจ้งเตือน
+      </ion-item>
 
-    <ion-title size="small">ระบบจัดการอสังหาริมทรัพย์</ion-title>
-    <ion-button size="small" (click)="onLogout()">Log Out</ion-button>
-  </ion-item>
-</ion-header>
+      <ion-item class="menu-list" [routerLink]="['/seller/seller/pro_you']">
+        <ion-icon name="server" slot="start"></ion-icon> อสังหาริมทรัพย์ของคุณ
+      </ion-item>
 
+      <ion-item class="menu-list" [routerLink]="['/seller/seller/favorite']">
+        <ion-icon name="heart-half-outline" slot="start"></ion-icon> รายการชื่นชอบ
+      </ion-item>
 
-<ion-content>
-  
-  <ion-tabs>
-    <ion-tab-bar slot="top">
-      <ion-tab-button tab="home">
-        <ion-icon name="home"></ion-icon>
-        <ion-label>หน้าหลัก</ion-label>
-      </ion-tab-button>
+      <ion-item class="menu-list" [routerLink]="['/seller/seller/profile']">
+        <ion-icon name="person" slot="start"></ion-icon> ข้อมูลส่วนตัว
+      </ion-item>
 
-      <ion-tab-button tab="search">
-        <ion-icon name="search"></ion-icon>
-        <ion-label>ค้นหา</ion-label>
-      </ion-tab-button>
+      <ion-item class="menu-list" (click)="onLogout()">
+        <ion-icon name="power" slot="start"></ion-icon> ออกจากระบบ
+      </ion-item>
 
-      <ion-tab-button tab="map">
-        <ion-icon name="pin"></ion-icon>
-        <ion-label>แผนที่</ion-label>
-      </ion-tab-button>
+    </ion-list>
+  </ion-content>
+</ion-menu>
 
-      <ion-tab-button tab="wishlist">
-        <ion-icon name="notifications"></ion-icon>
-        <ion-label>แจ้งเตือน</ion-label>
-      </ion-tab-button>
+<ion-router-outlet main>
+  <ion-header>
+    <ion-item>
 
-      <ion-tab-button tab="mail">
-        <ion-icon name="chatbubbles"></ion-icon>
-        <ion-badge color="danger">10</ion-badge>
-        <ion-label>แชท</ion-label>
-      </ion-tab-button>
+      <img src="../../assets/imgs/Logo-24.png" width="50px">
 
-      <ion-tab-button tab="pro_you">
-        <ion-icon name="archive"></ion-icon>
-        <ion-label>อสังหา</ion-label>
-      </ion-tab-button>
-
-      <ion-tab-button tab="profile">
-        <ion-icon name="person"></ion-icon>
-        <ion-label>ข้อมูลส่วนตัว</ion-label>
-      </ion-tab-button>
+      <ion-title size="small" class="head">ระบบจัดการอสังหาริมทรัพย์</ion-title>
+      <!-- <ion-button size="small" (click)="onLogout()">Log Out</ion-button> -->
+    </ion-item>
+  </ion-header>
 
 
-    </ion-tab-bar>
+  <ion-content>
 
-  </ion-tabs>
-  
-</ion-content>
+    <ion-tabs>
 
+      <ion-tab-bar slot="top">
+        <ion-tab-button tab="home">
+          <ion-icon name="home"></ion-icon>
+          <ion-label>หน้าหลัก</ion-label>
+        </ion-tab-button>
+
+        <ion-tab-button tab="search">
+          <ion-icon name="search"></ion-icon>
+          <ion-label>ค้นหา</ion-label>
+        </ion-tab-button>
+
+        <ion-tab-button tab="map">
+          <ion-icon name="location"></ion-icon>
+          <ion-label>แผนที่</ion-label>
+        </ion-tab-button>
+
+        <ion-tab-button tab="mail">
+          <ion-icon name="chatbubbles"></ion-icon>
+          <ion-label>ข้อความ</ion-label>
+        </ion-tab-button>
+
+
+
+
+
+      </ion-tab-bar>
+
+    </ion-tabs>
+
+  </ion-content>
+
+
+
+
+</ion-router-outlet>

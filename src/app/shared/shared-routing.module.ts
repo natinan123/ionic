@@ -10,6 +10,7 @@ import { ProDetailComponent } from './pro-detail/pro-detail.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { ProfileComponent } from './profile/profile.component';
 import { MessageComponent } from './message/message.component';
+import { ListUserComponent } from './mail/list-user/list-user.component';
 
 
 const routes: Routes = [
@@ -55,6 +56,10 @@ const routes: Routes = [
       { // 
         path: 'edit_profile',
         component: EditProfileComponent
+      },
+      { // รายชื่อแชท
+        path: 'list_user',
+        component: ListUserComponent
       },
     ]
   }

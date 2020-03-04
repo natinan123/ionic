@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { Platform } from '@ionic/angular';
+import { Platform, NavController } from '@ionic/angular';
 import { SessionService } from 'src/app/@service/session.service';
 import { ServerService } from 'src/app/@service/server.service';
 import { Router } from '@angular/router';
@@ -23,6 +23,7 @@ export class MapComponent implements OnInit {
   user: any;
   status: any;
   link: string;
+  previous: any;
   // type_id: any;
 
 
@@ -31,9 +32,10 @@ export class MapComponent implements OnInit {
     private session: SessionService,
     private service: ServerService,
     private route: Router,
+    public navCtrl: NavController,
   ) {
     console.log(platform.height());
-    this.height = platform.height() - 56;
+    this.height = platform.height() -15;
   }
 
   ngOnInit() {
@@ -51,7 +53,7 @@ export class MapComponent implements OnInit {
     }
     if (this.user[0].cus_status == "seller") {
       this.link = '/seller/seller/prodetail';
-    } 
+    }
     if (this.user[0].cus_status == "buyer") {
       this.link = '/buyer/buyer/prodetail';
     }
@@ -90,4 +92,11 @@ export class MapComponent implements OnInit {
       })
   }
 
+
+  clickedMarker(infowindow) {
+    if (this.previous) {
+      this.previous.close();
+    }
+    this.previous = infowindow;
+  }
 }

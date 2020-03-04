@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ServerService } from 'src/app/@service/server.service';
 import { SessionService } from 'src/app/@service/session.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { NavController, Platform } from '@ionic/angular';
+import { Platform, ModalController, NavController } from '@ionic/angular';
+import { ListUserComponent } from './list-user/list-user.component';
 
 @Component({
   selector: 'app-mail',
@@ -15,6 +16,7 @@ export class MailComponent implements OnInit {
   Chatuser: Object;
   status: any;
   link: string;
+  dataReturned: any;
 
   constructor(
     private service: ServerService,
@@ -23,7 +25,7 @@ export class MailComponent implements OnInit {
     private router: Router,
     public navCtrl: NavController,
     public platform: Platform,
-
+    public modalController: ModalController,
   ) { }
 
   ngOnInit() {
@@ -55,4 +57,26 @@ export class MailComponent implements OnInit {
         this.Chatuser = res;
       })
   }
+
+  
+
+  async openModal() {
+    const modal = await this.modalController.create({
+      component: ListUserComponent,
+      componentProps: {
+        "paramID": "a",
+        "paramTitle": "Test Title"
+      }
+    });
+
+    modal.onDidDismiss().then((dataReturned) => {
+      if (dataReturned !== null) {
+        this.dataReturned = dataReturned.data;
+        //alert('Modal Sent Data :'+ dataReturned);
+      }
+    });
+
+    return await modal.present();
+  }
+
 }

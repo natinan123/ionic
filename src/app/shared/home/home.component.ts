@@ -30,16 +30,16 @@ export class HomeComponent implements OnInit {
     this.user = this.session.getActiveUser();
     this.status = this.user[0].cus_status;
     if (this.user[0].cus_status == null || this.user[0].cus_status == "") {
-      this.link = '/mainpage/mainpage/message';
+      this.link = '/mainpage/mainpage/prodetail';
     }
     if (this.user[0].cus_status == "admin") {
-      this.link = '/admin/admin/message';
+      this.link = '/admin/admin/prodetail';
     }
     if (this.user[0].cus_status == "seller") {
-      this.link = '/seller/seller/message';
+      this.link = '/seller/seller/prodetail';
     } 
     if (this.user[0].cus_status == "buyer") {
-      this.link = '/buyer/buyer/message';
+      this.link = '/buyer/buyer/prodetail';
     }
   }
 

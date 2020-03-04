@@ -6,9 +6,13 @@
   </ion-header>
   <ion-content>
     <ion-list>
-      <ion-item class="menu-list" [routerLink]="['/buyer/buyer/mail']">
+      <!-- <ion-item class="menu-list" [routerLink]="['/buyer/buyer/mail']">
         <ion-icon name="chatbubbles" slot="start"></ion-icon> รายการติดต่อ
-      </ion-item>
+      </ion-item> -->
+
+      <ion-item  class="menu-list" [routerLink]="['/buyer/buyer/wishlist']">
+        <ion-icon name="notifications" slot="start"></ion-icon> แจ้งเตือน
+      </ion-item >
 
       <ion-item class="menu-list" [routerLink]="['/buyer/buyer/favorite']">
         <ion-icon name="heart-half-outline" slot="start"></ion-icon> รายการชื่นชอบ
@@ -74,15 +78,10 @@
           <ion-label>แผนที่</ion-label>
         </ion-tab-button>
 
-        <ion-tab-button tab="wishlist">
-          <ion-icon name="notifications"></ion-icon>
-          <ion-label>แจ้งเตือน</ion-label>
-        </ion-tab-button>
-
-        <!-- <ion-tab-button tab="mail">
+        <ion-tab-button tab="mail">
           <ion-icon name="chatbubbles"></ion-icon>
-          <ion-label>แชท</ion-label>
-        </ion-tab-button> -->
+          <ion-label>ข้อความ</ion-label>
+        </ion-tab-button>
 
 
 

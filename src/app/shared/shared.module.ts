@@ -20,6 +20,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { MessageComponent } from './message/message.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { AgmJsMarkerClustererModule } from '@agm/js-marker-clusterer';
+import { ListUserComponent } from './mail/list-user/list-user.component';
 
 
 @NgModule({
@@ -34,6 +35,7 @@ import { AgmJsMarkerClustererModule } from '@agm/js-marker-clusterer';
     ProfileComponent,
     EditProfileComponent,
     MessageComponent,
+    ListUserComponent,
   ],
   imports: [
     CommonModule,
