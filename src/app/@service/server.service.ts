@@ -10,6 +10,11 @@ export class ServerService {
 
 
 
+  // public getIPAddress() {
+  //   return this.http.get("http://api.ipify.org/?format=json");
+  // }
+
+
   // login 
   getLogin(data) {
     return this.http.post(urlServer.ipServer + 'login', data)
@@ -219,14 +224,7 @@ export class ServerService {
   getCountPro(data) {
     return this.http.get(urlServer.ipServer + 'countpro/' + data)
   }
-  // ! ไม่ใช้ รายการ อัพเกรด
-  getUpgradeReq() {
-    return this.http.get(urlServer.ipServer + 'getupgrade')
-  }
-  // นับ upgrade
-  getCountUp() {
-    return this.http.get(urlServer.ipServer + 'countup')
-  }
+
   // รูป โปรไฟล์
   getNameAvatar(data) {
     return this.http.get(urlServer.ipServer + 'getnameavatar/' + data)
@@ -266,6 +264,14 @@ export class ServerService {
   // รายการ อสัง เผยแพร่
   getPro_public() {
     return this.http.get(urlServer.ipServer + 'pro_public')
+  }
+  // รายการส่งมาร้องขอแนะนำ
+  getPacket() {
+    return this.http.get(urlServer.ipServer + 'packet')
+  }
+  // รายละเอียดร้องขอแนะนำ
+  getPack_detail(data) {
+    return this.http.get(urlServer.ipServer + 'pack_detail/' + data)
   }
   // todo ทดสอบ
   getimageTast() {
@@ -321,6 +327,14 @@ export class ServerService {
   postFavorate(data) {
     return this.http.post(urlServer.ipServer + 'postFavorate', data)
   }
+  // post ส่งร้องขอไปรายการแนะนำ
+  postPacket(formData) {
+    return this.http.post(urlServer.ipServer + 'post_packet', formData)
+  }
+  // post ส่งไปรายการแนะนำ
+  post_recom(data) {
+    return this.http.post(urlServer.ipServer + 'post_recom', data)
+  }
   // ! END ^ Post -------------------------//
 
 
@@ -373,6 +387,7 @@ export class ServerService {
   putExpire() {
     return this.http.get(urlServer.ipServer + 'expire')
   }
+
   // ! END ^ Update -------------------------//
 
 
@@ -395,8 +410,14 @@ export class ServerService {
   deleteUnfollow(data) {
     return this.http.post(urlServer.ipServer + 'unfollow', data)
   }
-
-
+  // delete_recom
+  delete_recom() {
+    return this.http.delete(urlServer.ipServer + 'delete_recom')
+  }
+  // delete loc
+  delete_packet(data) {
+    return this.http.delete(urlServer.ipServer + 'delete_packet/' + data)
+  }
   // ! END ^ Delete -------------------------//
 
 
@@ -438,7 +459,6 @@ export class ServerService {
   postFirstChatLiat(data) {
     return this.http.post(urlServer.ipServer + 'chatlist', data)
   }
-
 
 
 
