@@ -8,23 +8,23 @@
     <ion-list>
 
       <ion-item class="menu-list" [routerLink]="['/seller/seller/wishlist']">
-        <ion-icon name="notifications" slot="start"></ion-icon> แจ้งเตือน
+        <ion-icon src="../../assets/ionicons-pack/notifications.svg" slot="start"></ion-icon> แจ้งเตือน
       </ion-item>
 
       <ion-item class="menu-list" [routerLink]="['/seller/seller/pro_you']">
-        <ion-icon name="server" slot="start"></ion-icon> อสังหาริมทรัพย์ของคุณ
+        <ion-icon src="../../assets/ionicons-pack/server.svg" slot="start"></ion-icon> อสังหาริมทรัพย์ของคุณ
       </ion-item>
 
       <ion-item class="menu-list" [routerLink]="['/seller/seller/favorite']">
-        <ion-icon name="heart-half-outline" slot="start"></ion-icon> รายการชื่นชอบ
+        <ion-icon src="../../assets/ionicons-pack/heart-half-outline.svg" slot="start"></ion-icon> รายการชื่นชอบ
       </ion-item>
 
       <ion-item class="menu-list" [routerLink]="['/seller/seller/profile']">
-        <ion-icon name="person" slot="start"></ion-icon> ข้อมูลส่วนตัว
+        <ion-icon src="../../assets/ionicons-pack/person.svg" slot="start"></ion-icon> ข้อมูลส่วนตัว
       </ion-item>
 
       <ion-item class="menu-list" (click)="onLogout()">
-        <ion-icon name="power" slot="start"></ion-icon> ออกจากระบบ
+        <ion-icon src="../../assets/ionicons-pack/power.svg" slot="start"></ion-icon> ออกจากระบบ
       </ion-item>
 
     </ion-list>
@@ -38,7 +38,8 @@
       <img src="../../assets/imgs/Logo-24.png" width="50px">
 
       <ion-title size="small" class="head">ระบบจัดการอสังหาริมทรัพย์</ion-title>
-      <ion-icon name="ellipsis-vertical-outline" slot="end" (click)="openFirst()"></ion-icon>
+      <ion-icon src="../../assets/ionicons-pack/ellipsis-vertical-outline.svg" slot="end" (click)="openFirst()">
+      </ion-icon>
     </ion-item>
   </ion-header>
 
@@ -49,22 +50,22 @@
 
       <ion-tab-bar slot="top">
         <ion-tab-button tab="home">
-          <ion-icon name="home"></ion-icon>
+          <ion-icon src="../../assets/ionicons-pack/home.svg"></ion-icon>
           <ion-label>หน้าหลัก</ion-label>
         </ion-tab-button>
 
         <ion-tab-button tab="search">
-          <ion-icon name="search"></ion-icon>
+          <ion-icon src="../../assets/ionicons-pack/search.svg"></ion-icon>
           <ion-label>ค้นหา</ion-label>
         </ion-tab-button>
 
         <ion-tab-button tab="map">
-          <ion-icon name="location"></ion-icon>
+          <ion-icon src="../../assets/ionicons-pack/location.svg"></ion-icon>
           <ion-label>แผนที่</ion-label>
         </ion-tab-button>
 
         <ion-tab-button tab="mail">
-          <ion-icon name="chatbubbles"></ion-icon>
+          <ion-icon src="../../assets/ionicons-pack/chatbubbles.svg"></ion-icon>
           <ion-label>ข้อความ</ion-label>
         </ion-tab-button>
 
