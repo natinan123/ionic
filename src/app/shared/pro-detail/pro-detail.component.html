@@ -1,3 +1,38 @@
-<p>
-  pro-detail works!
-</p>
+<ion-content>
+
+
+
+  <ion-slides [pager]="true">
+    <ion-slide *ngFor="let item of imagePath">
+      <ion-img src="data:image/jpg;base64,{{item.image}}"></ion-img>
+    </ion-slide>
+  </ion-slides>
+
+  <ion-icon name="heart-outline" (click)="onClickFollow()" *ngIf="follow == 0"></ion-icon>
+  <ion-icon name="heart-circle-outline" (click)="onUnFollow()" *ngIf="follow == 1"></ion-icon>
+
+  <ion-item-divider color="light">
+    <ion-label class="ion-text-wrap">
+      {{pro_head}}
+    </ion-label>
+  </ion-item-divider>
+
+  <ion-item-divider color="light">
+    <ion-label color="danger">
+      ราคา {{price | number : '1.2-2'}} บาท
+    </ion-label>
+  </ion-item-divider>
+
+  <ion-item-divider color="light">
+    <ion-label color="tertiary">
+      ขนาดพื้นที่ {{pro_area | number : '1.2-2'}} ตร.ม.
+    </ion-label>
+  </ion-item-divider>
+  
+  <ion-text color="medium">
+    <pre>{{pro_detail}}</pre>
+  </ion-text>
+  
+  
+
+</ion-content>

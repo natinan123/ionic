@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SessionService } from '../@service/session.service';
 import { ServerService } from '../@service/server.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
@@ -37,7 +37,8 @@ export class RegisterPage implements OnInit {
   constructor(
     private session: SessionService,
     private service: ServerService,
-    private route: Router,
+    private route: ActivatedRoute,
+    private router: Router,
   ) { }
 
   ngOnInit() {
@@ -61,9 +62,9 @@ export class RegisterPage implements OnInit {
     }
     console.log(data)//if  ทุก คอลัมไม่เท่ากับว่าง
     if (this.repassword === this.password) {
-      this.service.onRegisterSell(data).subscribe(
+      this.service.onRegister(data).subscribe(
         async (res) => {
-          this.route.navigate(['/tabs/home']);
+          this.router.navigate(['/tabs/home']);
 
         }
       )

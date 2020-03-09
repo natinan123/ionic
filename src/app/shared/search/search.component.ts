@@ -47,9 +47,9 @@ export class SearchComponent implements OnInit {
   getProperty() {
     this.service.getProperty().subscribe(
       (res) => {
-        console.log(res);
+        console.log('ค้นหา',res);
         this.products = res;
-        console.log(this.products);
+        // console.log(this.products);
 
       })
   }

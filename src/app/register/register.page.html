@@ -25,7 +25,7 @@
           <div padding>
             <ion-item>
               <ion-label>เลือกสถานะที่จะสมัคร</ion-label>
-              <ion-select placeholder="เลือกสถานะ">
+              <ion-select placeholder="เลือกสถานะ" [(ngModel)]="Cus_status" formControlName="Cus_status">
                 <ion-select-option value="seller">ผู้ประกาศขาย</ion-select-option>
                 <ion-select-option value="buyer">ผู้ซื้อ</ion-select-option>
               </ion-select>

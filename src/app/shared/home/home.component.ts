@@ -8,9 +8,9 @@ import { SessionService } from 'src/app/@service/session.service';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  products: Object;
-  poppular: Object;
-  recoms: Object;
+  products: any;
+  poppular: any;
+  recoms: any;
   user: any;
   status: any;
   link: string;
@@ -24,7 +24,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
 
-    this.getProperty();
+    // this.getProperty();
     this.getPoppular();
     this.getRecom();
     this.user = this.session.getActiveUser();
@@ -44,22 +44,22 @@ export class HomeComponent implements OnInit {
   }
 
 
-  getProperty() {
-    this.service.getProperty().subscribe(
-      (res) => {
-        console.log(res);
-        this.products = res;
-        console.log(this.products);
+  // getProperty() {
+  //   this.service.getProperty().subscribe(
+  //     (res) => {
+  //       console.log(res);
+  //       this.products = res;
+  //       console.log(this.products);
 
-      })
-  }
+  //     })
+  // }
 
   getPoppular() {
     this.service.getPoppular().subscribe(
       (res) => {
-        console.log(res);
+        console.log('รายการ',res);
         this.poppular = res;
-        console.log(this.poppular);
+   
 
       })
   }
@@ -67,9 +67,8 @@ export class HomeComponent implements OnInit {
   getRecom() {
     this.service.getRecommainpage().subscribe(
       (res) => {
-        console.log(res);
+        console.log('แนะนำ',res);
         this.recoms = res;
-        console.log(this.recoms);
         // this.recom_pic = res.result;
         // console.log(this.recom_pic);
       })
