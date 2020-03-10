@@ -12,8 +12,8 @@ import { Router } from '@angular/router';
 })
 export class MapComponent implements OnInit {
 
-  lat: number = 51.678418;
-  lng: number = 7.809007;
+  lat: number = 13.7571453;
+  lng: number = 100.5011826;
 
   type_id = new FormControl('');
   height = 0;

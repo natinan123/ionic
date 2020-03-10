@@ -77,7 +77,7 @@ export class EditProfileComponent implements OnInit {
     console.log(data)
     this.service.putProfile(data).subscribe(
       async (res) => {
-        this.route.navigate(['/seller/seller/favorite'])
+        this.route.navigate(['/seller/seller/profile'])
     
       }
       

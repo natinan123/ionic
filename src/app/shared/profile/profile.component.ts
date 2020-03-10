@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { SessionService } from 'src/app/@service/session.service';
 import { ServerService } from 'src/app/@service/server.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { NavController, Platform, ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-profile',
@@ -22,8 +24,13 @@ export class ProfileComponent implements OnInit {
   link: string;
 
   constructor(
-    private session: SessionService,
     private service: ServerService,
+    private session: SessionService,
+    private route: ActivatedRoute,
+    private router: Router,
+    public navCtrl: NavController,
+    public platform: Platform,
+    public modalController: ModalController,
   ) { }
 
   ngOnInit() {
