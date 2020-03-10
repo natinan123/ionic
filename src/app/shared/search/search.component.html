@@ -12,9 +12,9 @@
     </ion-list-header>
     <ion-card *ngFor="let pro of products | filter:searchText" [routerLink]="[link ,pro.pro_id]">
       <ion-card-header>
-        <ion-thumbnail style=" height: 200px; width: auto;">
-          <img src="data:image/png;base64,{{pro.image1}}">
-        </ion-thumbnail>
+
+        <img src="data:image/png;base64,{{pro.image1}}" style=" height: 180px; width: auto">
+
         <ion-card-title class="head">{{pro.pro_head}}</ion-card-title>
       </ion-card-header>
       <ion-card-content>

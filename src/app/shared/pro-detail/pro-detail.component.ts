@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ServerService } from 'src/app/@service/server.service';
 import { SessionService } from 'src/app/@service/session.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { NavController } from '@ionic/angular';
+import { NavController, Platform, ModalController } from '@ionic/angular';
+import { ListUserComponent } from '../mail/list-user/list-user.component';
+import { ProLocationComponent } from './pro-location/pro-location.component';
 
 // Endcode
 function utf8_to_b64(str) {
@@ -79,13 +81,16 @@ export class ProDetailComponent implements OnInit {
   count_FromProvin: any;
   data: any;
   follow: any;
+  dataReturned: any;
 
   constructor(
     private service: ServerService,
     private session: SessionService,
     private route: ActivatedRoute,
     private router: Router,
-    public navCtrl: NavController
+    public navCtrl: NavController,
+    public platform: Platform,
+    public modalController: ModalController,
   ) { }
 
   ngOnInit() {
@@ -162,7 +167,7 @@ export class ProDetailComponent implements OnInit {
         this.zone_id = res[0].zone_id;
         this.zone_name = res[0].zone_name;
         this.profile_pic = res[0].profile_pic;
-        console.log(this.pro_detail);
+        // console.log(this.pro_detail);
         this.Near_pro();
 
       }
@@ -248,4 +253,27 @@ export class ProDetailComponent implements OnInit {
     )
 
   }
+
+  height = 0;
+
+  async openModal() {
+    const modal = await this.modalController.create({
+      component: ProLocationComponent,
+      componentProps: {
+        "latitude": this.latitude,
+        "longtitude": this.longtitude
+      }
+    });
+
+    modal.onDidDismiss().then((dataReturned) => {
+      if (dataReturned !== null) {
+        this.dataReturned = dataReturned.data;
+        //alert('Modal Sent Data :'+ dataReturned);
+      }
+    });
+
+    return await modal.present();
+  }
+
+
 }

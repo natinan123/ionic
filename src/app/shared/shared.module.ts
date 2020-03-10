@@ -21,6 +21,7 @@ import { MessageComponent } from './message/message.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { AgmJsMarkerClustererModule } from '@agm/js-marker-clusterer';
 import { ListUserComponent } from './mail/list-user/list-user.component';
+import { ProLocationComponent } from './pro-detail/pro-location/pro-location.component';
 
 
 @NgModule({
@@ -36,6 +37,7 @@ import { ListUserComponent } from './mail/list-user/list-user.component';
     EditProfileComponent,
     MessageComponent,
     ListUserComponent,
+    ProLocationComponent,
   ],
   imports: [
     CommonModule,

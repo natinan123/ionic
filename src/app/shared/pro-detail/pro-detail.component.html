@@ -8,13 +8,35 @@
     </ion-slide>
   </ion-slides>
 
-  <ion-icon name="heart-outline" (click)="onClickFollow()" *ngIf="follow == 0"></ion-icon>
-  <ion-icon name="heart-circle-outline" (click)="onUnFollow()" *ngIf="follow == 1"></ion-icon>
+  <ion-row>
+    <ion-col>
+      <ion-button (click)="onClickFollow()" *ngIf="follow == 0">
+        <ion-icon src="../../assets/ionicons-pack/heart-outline.svg"></ion-icon>&nbsp; ติดตาม
+      </ion-button>
+
+      <ion-button (click)="onUnFollow()" *ngIf="follow == 1">
+        <ion-icon src="../../assets/ionicons-pack/heart-circle-outline.svg"></ion-icon>&nbsp;
+        เลิกติดตาม
+      </ion-button>
+    </ion-col>
+    <ion-col>
+      <ion-button (click)="openModal()">
+        <ion-icon src="../../assets/ionicons-pack/map-outline.svg"></ion-icon> &nbsp; ที่ตั้ง
+      </ion-button>
+    </ion-col>
+  </ion-row>
+
+
 
   <ion-item-divider color="light">
     <ion-label class="ion-text-wrap">
       {{pro_head}}
     </ion-label>
+  </ion-item-divider>
+  <ion-item-divider color="light">
+    <p>{{zone_name}}</p> &nbsp;
+    <p>{{provin_name}}</p> &nbsp;
+    <p>{{loc_name}}</p>
   </ion-item-divider>
 
   <ion-item-divider color="light">
@@ -29,10 +51,90 @@
     </ion-label>
   </ion-item-divider>
 
+  <ion-item-divider color="light">
+    <ion-label>
+      คุณลักษณะ
+    </ion-label>
+
+
+  </ion-item-divider>
+
+  <ion-chip *ngIf="style1 == 'true'" color="success">
+    <ion-label> ใกล้รถไฟฟ้า MRT </ion-label>
+  </ion-chip>
+  <ion-chip color="success" *ngIf="style2 == 'true'">
+    <ion-label> ใกล้รถไฟฟ้า BTS </ion-label>
+  </ion-chip>
+  <ion-chip color="success" *ngIf="style3 == 'true'">
+    <ion-label> ใกล้ห้างสรรพสินค้า </ion-label>
+  </ion-chip>
+  <ion-chip color="success" *ngIf="style4 == 'true'">
+    <ion-label> ใกล้สถานพยาบาล </ion-label>
+  </ion-chip>
+  <ion-chip color="success" *ngIf="style5 == 'true'">
+    <ion-label> ใกล้มหาวิทยาลัย </ion-label>
+  </ion-chip>
+  <ion-chip color="success" *ngIf="style6 == 'true'">
+    <ion-label> ใกล้โรงเรียน </ion-label>
+  </ion-chip>
+  <ion-chip color="success" *ngIf="style7 == 'true'">
+    <ion-label> ใกล้รถโดยสารสาธารณะ </ion-label>
+  </ion-chip>
+  <ion-chip color="success" *ngIf="style8 == 'true'">
+    <ion-label> ใกล้สถานบันเทิง </ion-label>
+  </ion-chip>
+  <ion-chip color="success" *ngIf="style9 == 'true'">
+    <ion-label> ใกล้ร้านอาหาร คาเฟ่ </ion-label>
+  </ion-chip>
+  <ion-chip color="success" *ngIf="style10 == 'true' ">
+    <ion-label> สวนสาธารณะ </ion-label>
+  </ion-chip>
+  <ion-chip color="success" *ngIf="style11 == 'true'">
+    <ion-label> ที่จอดรถ </ion-label>
+  </ion-chip>
+  <ion-chip color="success" *ngIf="style12 == 'true'">
+    <ion-label> ลานจอดรถ </ion-label>
+  </ion-chip>
+  <ion-chip color="success" *ngIf="style13 == 'true'">
+    <ion-label> รักษาความปลอดภัย </ion-label>
+  </ion-chip>
+  <ion-chip color="success" *ngIf="style14 == 'true'">
+    <ion-label> สระว่ายน้า </ion-label>
+  </ion-chip>
+  <ion-chip color="success" *ngIf="style15 == 'true'">
+    <ion-label> กล้องวงจรปิด </ion-label>
+  </ion-chip>
+  <ion-chip color="success" *ngIf="style16 == 'true'">
+    <ion-label> ฟิตเนส </ion-label>
+  </ion-chip>
+  <ion-chip color="success" *ngIf="style17 == 'true'">
+    <ion-label> สนามเด็กเล่น </ion-label>
+  </ion-chip>
+  <ion-chip color="success" *ngIf="style18 == 'true'">
+    <ion-label> มินิมาร์ท </ion-label>
+  </ion-chip>
+  <ion-chip color="success" *ngIf="style19 == 'true'">
+    <ion-label> ซัก อบ รีด </ion-label>
+  </ion-chip>
+  <ion-chip color="success" *ngIf="style20 == 'true' ">
+    <ion-label> ศาลาชมทิวทัศน์ </ion-label>
+  </ion-chip>
+
+
   <ion-text color="medium">
     <p class="ion-text-wrap">{{pro_detail}}</p>
   </ion-text>
 
+  <ion-item>
+    <ion-avatar slot="start">
+      <img src="data:image/jpg;base64,{{profile_pic}}">
+    </ion-avatar>
+    <ion-label>
+      <h3>{{fname}} {{lname}}</h3>
+      <p>email : {{email_id}}</p>
+      <p>เบอร์ : {{phone}}</p>
+    </ion-label>
+  </ion-item>
 
 
 </ion-content>

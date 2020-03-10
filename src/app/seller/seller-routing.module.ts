@@ -12,6 +12,7 @@ import { EditProfileComponent } from '../shared/edit-profile/edit-profile.compon
 import { ProfileComponent } from '../shared/profile/profile.component';
 import { MessageComponent } from '../shared/message/message.component';
 import { ProYouComponent } from './pro-you/pro-you.component';
+import { ProLocationComponent } from '../shared/pro-detail/pro-location/pro-location.component';
 
 
 const routes: Routes = [
@@ -54,6 +55,10 @@ const routes: Routes = [
       { // 
         path: 'prodetail/:pro_id',
         component: ProDetailComponent
+      }, 
+      { // ที่ตั้ง
+        path: 'pro_location',
+        component: ProLocationComponent
       },
       { // 
         path: 'profile',

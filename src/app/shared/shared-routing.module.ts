@@ -11,6 +11,7 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { ProfileComponent } from './profile/profile.component';
 import { MessageComponent } from './message/message.component';
 import { ListUserComponent } from './mail/list-user/list-user.component';
+import { ProLocationComponent } from './pro-detail/pro-location/pro-location.component';
 
 
 const routes: Routes = [
@@ -48,6 +49,10 @@ const routes: Routes = [
       { // 
         path: 'prodetail/:pro_id',
         component: ProDetailComponent
+      },
+      { // ที่ตั้ง
+        path: 'pro_location',
+        component: ProLocationComponent
       },
       { // 
         path: 'profile',
