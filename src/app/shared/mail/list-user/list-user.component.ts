@@ -23,27 +23,27 @@ export class ListUserComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    console.table(this.navParams);
-    this.modelId = this.navParams.data.paramID;
-    this.modalTitle = this.navParams.data.paramTitle;
-    this.onSearchUser()
-    this.getTableMember();
+    // console.table(this.navParams);
+    // this.modelId = this.navParams.data.paramID;
+    // this.modalTitle = this.navParams.data.paramTitle;
+    // this.onSearchUser()
+    // this.getTableMember();
     // this.setFilteredItems();
   }
 
-  async closeModal() {
-    const onClosedData: string = "Wrapped Up!";
-    await this.modalController.dismiss(onClosedData);
-  }
+  // async closeModal() {
+  //   const onClosedData: string = "Wrapped Up!";
+  //   await this.modalController.dismiss(onClosedData);
+  // }
 
-  getTableMember() {
-    this.service.getMember().subscribe(
-      (res) => {
-        console.table(res);
-        this.user = res
-      }
-    )
-  }
+  // getTableMember() {
+  //   this.service.getMember().subscribe(
+  //     (res) => {
+  //       console.table(res);
+  //       this.user = res
+  //     }
+  //   )
+  // }
 
 
   // setFilteredItems() {
