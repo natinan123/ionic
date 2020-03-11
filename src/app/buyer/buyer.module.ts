@@ -16,6 +16,7 @@ import { RequireComponent } from './require/require.component';
 import { AgmJsMarkerClustererModule } from '@agm/js-marker-clusterer';
 import { MatchComponent } from './match/match.component';
 import { ListReqComponent } from './list-req/list-req.component';
+import { ListReqDetailComponent } from './list-req/list-req-detail/list-req-detail.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { ListReqComponent } from './list-req/list-req.component';
     RequireComponent,
     MatchComponent,
     ListReqComponent,
+    ListReqDetailComponent,
   ],
   imports: [
     CommonModule,

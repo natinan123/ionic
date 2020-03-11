@@ -1,3 +1,27 @@
-<p>
-  list-req works!
-</p>
+<ion-header>
+  <ion-toolbar style="padding-top: 0px;">
+    <ion-title>รายการความต้องการ</ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let i of require">
+      <ion-label class="ion-text-wrap" (click)="openModal(i)">
+        <ion-text color="success">
+          <h3><ion-icon name="pricetag-outline"></ion-icon> {{i.type_name}}</h3>
+        </ion-text>
+
+        <ion-text color="primary">
+          <p style="margin-left: 30px;">ภูมิภาค : {{i.zone_name}}</p>
+          <p style="margin-left: 30px;">จังหวัด : {{i.provin_name}}</p>
+          <p style="margin-left: 30px;">เขต/อำเภอ : {{i.loc_name}}</p>
+        </ion-text>
+      </ion-label>
+    </ion-item>
+
+
+
+  </ion-list>
+</ion-content>

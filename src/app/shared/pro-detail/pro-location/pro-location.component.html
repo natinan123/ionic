@@ -1,11 +1,13 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>แผนที่ตั้ง</ion-title>
-    <ion-icon name="chevron-back-outline" size-lg="12" (click)="closeModal()" slot="start"></ion-icon>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home" (click)="closeModal()"></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 <ion-content>
-  <agm-map [zoom]="15"  [style.height.px]="height" [latitude]="latitude" [longitude]="longtitude">
+  <agm-map [zoom]="15" [style.height.px]="height" [latitude]="latitude" [longitude]="longtitude">
     <!-- หน้าเริ่ม -->
     <agm-marker [latitude]="latitude" [longitude]="longtitude">
       <!-- มาค์ก -->

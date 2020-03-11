@@ -14,16 +14,17 @@
 </ion-header>
 
 <ion-content>
+  <ion-grid>
+    <ion-row *ngFor="let row of chat">
+      <ion-chip color="success" *ngIf="row.source != My">
+        <ion-label>{{row.mes_text}}</ion-label>
+      </ion-chip>
+      <ion-chip *ngIf="row.source == My">
+        <ion-label>{{row.mes_text}}</ion-label>
+      </ion-chip>
+    </ion-row>
+  </ion-grid>
 
-  <ion-row *ngFor="let row of chat">
-
-    <ion-chip outline color="success" *ngIf="row.source != My">
-      <ion-label>{{row.mes_text}}</ion-label>
-    </ion-chip>
-    <ion-chip *ngIf="row.source == My">
-      <ion-label>{{row.mes_text}}</ion-label>
-    </ion-chip>
-  </ion-row>
 
 
 
@@ -32,15 +33,20 @@
 <ion-footer>
   <ion-grid>
     <ion-row>
-      <!-- <ion-col size="10">
+      <ion-col size="10">
         <ion-input type="text" [formControl]="taxtChat" placeholder="พิมพ์ข้อความ" name="message"></ion-input>
-      </ion-col> -->
+      </ion-col>
+      <ion-col size="2">
+        <ion-icon name="paper-plane" (click)="postTaxtChat()"></ion-icon>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="10">
+        <ion-input type="text" [formControl]="taxtChat" placeholder="พิมพ์ข้อความ" name="message"></ion-input>
+      </ion-col>
       <ion-col size="2">
         <ion-icon name="paper-plane" (click)="postTaxtChat()"></ion-icon>
       </ion-col>
     </ion-row>
   </ion-grid>
 </ion-footer>
-
-
-

@@ -15,6 +15,7 @@ import { EditProfileComponent } from '../shared/edit-profile/edit-profile.compon
 import { RequireComponent } from './require/require.component';
 import { MatchComponent } from './match/match.component';
 import { ListReqComponent } from './list-req/list-req.component';
+import { ListReqDetailComponent } from './list-req/list-req-detail/list-req-detail.component';
 
 
 const routes: Routes = [
@@ -70,7 +71,10 @@ const routes: Routes = [
         path: 'list_Req',
         component: ListReqComponent
       },
-      
+      { // 
+        path: 'ListReqDetail',
+        component: ListReqDetailComponent
+      },
       { // 
         path: 'match',
         component: MatchComponent

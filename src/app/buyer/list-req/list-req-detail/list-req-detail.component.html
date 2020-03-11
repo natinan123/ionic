@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>ข้อมูลควาต้องการ</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home" (click)="closeModal()"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+
+
+  <ion-item>
+    <ion-label class="ion-text-wrap">
+      <ion-text color="primary">
+        <h3>{{data.type_name}}</h3>
+      </ion-text>
+      <p style="margin-left: 30px;">ภูมิภาค : {{data.zone_name}}</p>
+      <p style="margin-left: 30px;">จังหวัด : {{data.provin_name}}</p>
+      <p style="margin-left: 30px;">เขต/อำเภอ : {{data.loc_name}}</p>
+      <p style="margin-left: 30px;">พื้นที่ขนาดต่ำสุด : {{data.req_area_min}} ตร.ม.</p>
+      <p style="margin-left: 30px;">พื้นที่ขนาดสูงสุด : {{data.req_area_max}} ตร.ม.</p>
+      <p style="margin-left: 30px;">พื้นที่ขนาดต่ำสุด : {{data.req_price_min}} บาท</p>
+      <p style="margin-left: 30px;">ราคาพื้นที่สูงสุด : {{data.req_price_max}} บาท</p>
+      <p style="margin-left: 30px;">วันที่ลง : {{data.req_date}}</p>
+      
+    </ion-label>
+  </ion-item>
+  <ion-button (click)="onDeleteLReq()">
+    <ion-icon slot="start" name="trash-outline"></ion-icon>
+    ลบข้อมูล
+  </ion-button>
+</ion-content>

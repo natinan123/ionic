@@ -13,6 +13,8 @@ export class MatchComponent implements OnInit {
   user: any;
   require: Object;
   match: Object;
+  status: any;
+  link: string;
 
   constructor(
     private service: ServerService,
@@ -26,21 +28,26 @@ export class MatchComponent implements OnInit {
     this.user = this.session.getActiveUser();
     // console.log(this.user)
 
-    this.getRequire();
+    // this.getRequire();
     this.getReqmatchList();
+    this.status = this.user[0].cus_status;
 
+    if (this.user[0].cus_status == "seller") {
+      this.link = '/seller/seller/prodetail';
+    }
+  
   }
 
-  // get รายการความต้องการ
-  getRequire() {
-    this.service.getRequire(this.user[0].email_id).subscribe(
-      (res) => {
-        // console.log(res);
-        this.require = res;
+  // // get รายการความต้องการ
+  // getRequire() {
+  //   this.service.getRequire(this.user[0].email_id).subscribe(
+  //     (res) => {
+  //       // console.log(res);
+  //       this.require = res;
 
-      }
-    )
-  }
+  //     }
+  //   )
+  // }
 
   getReqmatchList() {
 

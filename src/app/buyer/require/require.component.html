@@ -24,32 +24,42 @@
 
     <ion-item>
       <ion-label>ภูมิภาค</ion-label>
-      <ion-select [(ngModel)]="Loc_zone" (ngModelChange)="onLocation($event)" formControlName="Loc_zone">
-        <ion-select-option [value]="z.loc_zone" *ngFor="let z of zones">{{z.zone_name}}</ion-select-option>
+      <ion-select [(ngModel)]="zone_id" (ngModelChange)="onProvince($event)" formControlName="Zone_id">
+        <ion-select-option [value]="z.zone_id" *ngFor="let z of zones">{{z.zone_name}}</ion-select-option>
       </ion-select>
     </ion-item>
 
     <ion-item>
       <ion-label>จังหวัด</ion-label>
-      <ion-select [(ngModel)]="Location_id" formControlName="Location_id">
-        <ion-select-option [value]="p.location_id" *ngFor="let p of provin">{{p.loc_name}}</ion-select-option>
+      <ion-select [(ngModel)]="province_id" (ngModelChange)="onLocation($event)" formControlName="Province_id">
+        <ion-select-option [value]="p.province_id" *ngFor="let p of provins">{{p.provin_name}}</ion-select-option>
       </ion-select>
     </ion-item>
 
+    <ion-item>
+      <ion-label>เขต/อำเภอ</ion-label>
+      <ion-select [(ngModel)]="location_id" formControlName="Location_id">
+        <ion-select-option [value]="p.location_id" *ngFor="let p of district">{{p.loc_name}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+ 
     <ion-title size="small">ราคา</ion-title>
     <ion-item>
-      <ion-range dualKnobs="true" color="danger" debounce="200" pin="false" min="10" max="99" [(ngModel)]="rangePrice"
-        formControlName="rangePrice">
+      <ion-range dualKnobs="true" color="danger" debounce="200" pin="false" min="0" max="10000000"
+        [(ngModel)]="rangePrice" formControlName="rangePrice">
         <ion-label slot="start">{{rangePrice.lower}}</ion-label>
         <ion-label slot="end">{{rangePrice.upper}}</ion-label>
       </ion-range>
+
+
     </ion-item>
 
 
 
     <ion-title size="small">ขนาดพื้นที่</ion-title>
     <ion-item>
-      <ion-range dualKnobs="true" color="danger" debounce="200" pin="false" min="10" max="99" [(ngModel)]="rangeArea"
+      <ion-range dualKnobs="true" color="danger" debounce="200" pin="false" min="0" max="500" [(ngModel)]="rangeArea"
         formControlName="rangeArea">
         <ion-label slot="start">{{rangeArea.lower}}</ion-label>
         <ion-label slot="end">{{rangeArea.upper}}</ion-label>
@@ -60,7 +70,7 @@
 
 
 
-    <!-- Round -->
+    
 
 
 
