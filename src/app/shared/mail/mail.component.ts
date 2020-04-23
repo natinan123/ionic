@@ -4,6 +4,7 @@ import { SessionService } from 'src/app/@service/session.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Platform, ModalController, NavController } from '@ionic/angular';
 import { ListUserComponent } from './list-user/list-user.component';
+import { MessageComponent } from '../message/message.component';
 
 @Component({
   selector: 'app-mail',
@@ -58,7 +59,7 @@ export class MailComponent implements OnInit {
       })
   }
 
-  
+
 
   async openModal() {
     const modal = await this.modalController.create({
@@ -74,9 +75,31 @@ export class MailComponent implements OnInit {
         this.dataReturned = dataReturned.data;
         //alert('Modal Sent Data :'+ dataReturned);
       }
+      this.getChatUser()
     });
 
     return await modal.present();
   }
+
+  async openChat(data) {
+    const modal = await this.modalController.create({
+      component: MessageComponent,
+      componentProps: {
+        "descination": data.descination,
+        // "longtitude": this.longtitude
+      }
+    });
+
+    modal.onDidDismiss().then((dataReturned) => {
+      if (dataReturned !== null) {
+        this.dataReturned = dataReturned.data;
+        //alert('Modal Sent Data :'+ dataReturned);
+      }
+    });
+
+    return await modal.present();
+  }
+
+
 
 }

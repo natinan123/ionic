@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./search.component.scss'],
 })
 export class SearchComponent implements OnInit {
-  products: Object;
+  products: any;
   searchText;
   user: any;
   status: any;
@@ -26,7 +26,7 @@ export class SearchComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.getProperty()
+    this.getProperty();
     this.user = this.session.getActiveUser();
     this.status = this.user[0].cus_status;
     if (this.user[0].cus_status == null || this.user[0].cus_status == "") {

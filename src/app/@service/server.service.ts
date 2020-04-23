@@ -283,6 +283,11 @@ export class ServerService {
   getimageTast() {
     return this.http.get(urlServer.ipServer + 'testgetimage')
   }
+
+  // รายการสมาชิก
+  getUser() {
+    return this.http.get(urlServer.ipServer + 'get_user')
+  }
   // ! END ^ Get -------------------------//
 
 

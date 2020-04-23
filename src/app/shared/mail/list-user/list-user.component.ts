@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController, NavParams, NavController } from '@ionic/angular';
+import { ModalController, NavParams, NavController, Platform } from '@ionic/angular';
 import { ServerService } from 'src/app/@service/server.service';
 import { SessionService } from 'src/app/@service/session.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-list-user',
@@ -13,6 +14,10 @@ export class ListUserComponent implements OnInit {
   modelId: number;
   Member: Object;
   user: any;
+  jsonData: any;
+  searchText;
+  add_email: any;
+  
 
   constructor(
     private service: ServerService,
@@ -20,53 +25,62 @@ export class ListUserComponent implements OnInit {
     private modalController: ModalController,
     private navParams: NavParams,
     public navCtrl: NavController,
+    private platform: Platform,
+    private route: ActivatedRoute,
+    private router: Router,
   ) { }
 
   ngOnInit() {
-    // console.table(this.navParams);
-    // this.modelId = this.navParams.data.paramID;
-    // this.modalTitle = this.navParams.data.paramTitle;
-    // this.onSearchUser()
-    // this.getTableMember();
-    // this.setFilteredItems();
+    this.getUser();
+    this.user = this.session.getActiveUser();
   }
 
-  // async closeModal() {
-  //   const onClosedData: string = "Wrapped Up!";
-  //   await this.modalController.dismiss(onClosedData);
-  // }
+  async closeModal() {
+    const onClosedData: string = "Wrapped Up!";
+    await this.modalController.dismiss(onClosedData);
+  }
 
-  // getTableMember() {
-  //   this.service.getMember().subscribe(
-  //     (res) => {
-  //       console.table(res);
-  //       this.user = res
-  //     }
-  //   )
-  // }
-
-
-  // setFilteredItems() {
-
-  //   this.user.filter((item) => {
-  //     return item.name.toLowerCase().includes();
-  //   });
-  //   this.user = this.data.filterItems(this.searchTerm);
-
-  //   return this.user.filter((item) => {
-  //     return item.name.toLowerCase().includes(searchTerm.toLowerCase());
-  // }); 
-  // }
-
-  //ค้นหาผู้ติดต่อ
-  onSearchUser() {
-    const data = this.modelId;
-    console.table(data);
-    this.service.getSearchUser(data).subscribe(
+  getUser() {
+    this.service.getUser().subscribe(
       (res) => {
-        console.log(res);
-        this.Member = res;
-
-      })
+        console.table(res);
+        this.jsonData = res
+      }
+    )
   }
+
+
+  addChat(data) {
+    console.log(data);
+    this.add_email = data.email_id;
+    this.postFirstChat();
+
+  }
+  // ส่งข้อความติดต่อครั้งแรก
+  postFirstChat() {
+    const data = {
+      source: this.user[0].email_id,
+      descination: this.add_email
+    }
+    console.log(data);
+    this.service.postFirstChat(data).subscribe(
+      async (res) => {
+
+        // if (this.user[0].cus_status == "seller") {
+        //   this.router.navigate(['seller/seller/mail']);
+        // }
+        // if (this.user[0].cus_status == "buyer") {
+        //   this.router.navigate(['buyer/buyer/mail']);
+
+        // }
+        this.closeModal();
+
+
+  
+      }
+    )
+  }
+
+
+  
 }

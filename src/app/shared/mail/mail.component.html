@@ -7,12 +7,18 @@
 <ion-content>
   <ion-row>
     <!-- Animated Searchbar -->
-    <ion-searchbar animated></ion-searchbar>
+    <ion-searchbar animated (click)="openModal()"></ion-searchbar>
   </ion-row>
 
 
 
-  <ion-item *ngFor="let u of Chatuser" [routerLink]="[link ,u.descination]">
+  <!-- <ion-item *ngFor="let u of Chatuser" [routerLink]="[link ,u.descination]">
+    <ion-avatar slot="start">
+      <img src="data:image/jpg;base64,{{u.des_profile_pic}}">
+    </ion-avatar>
+    <ion-label style="font-size: small;">{{u.des_fname}} {{u.des_lname}}</ion-label>
+  </ion-item> -->
+  <ion-item *ngFor="let u of Chatuser" (click)="openChat(u)">
     <ion-avatar slot="start">
       <img src="data:image/jpg;base64,{{u.des_profile_pic}}">
     </ion-avatar>

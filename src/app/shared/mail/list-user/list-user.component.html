@@ -1,27 +1,30 @@
-<!-- <ion-header>
-  <ion-toolbar text-center>
-    <ion-title>{{modalTitle}}</ion-title>
+<ion-header>
+  <ion-toolbar>
+    <ion-title>รายชื่อติดต่อ</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home" (click)="closeModal()"></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
-  <ion-grid>
-    <ion-row>
-      <ion-col text-center>
-        ID : {{modelId}}
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col text-center>
-        <ion-button (click)="closeModal()">Close Modal</ion-button>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+<ion-content>
 
-  <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="setFilteredItems()"></ion-searchbar>
+
+
+
+
+  <!-- Searchbar with danger color -->
+  <ion-searchbar color="danger" [(ngModel)]="searchText"></ion-searchbar>
+
   <ion-list>
-    <ion-item *ngFor="let data of user">
-        {{data.email_id}}
+    <ion-item *ngFor="let data of jsonData | filter:searchText" (click)="addChat(data)">
+     
+      <ion-avatar slot="start">
+        <img src="data:image/jpg;base64,{{data.profile_pic}}">
+      </ion-avatar>
+      <ion-label > {{data.fname}} {{data.lname}}</ion-label>
     </ion-item>
-</ion-list>
-</ion-content> -->
+  </ion-list>
+
+
+</ion-content>
